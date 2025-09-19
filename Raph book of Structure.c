@@ -13,7 +13,7 @@ int main()
     struct student s1; //structure variable
     s1.roll=64;
     s1.cgpa=6.9;
-//    s1.name ="Drim"; --> String which are defined with array notation you can't change the value of it,you  can copy ,compare.But you can't directly change the value.if it's a  character pointer then you can change the value.
+//    s1.name ="Drim"; X --> String which are defined with array notation you can't change the value of it,you  can copy ,compare.But you can't directly change the value.if it's a  character pointer then you can change the value.
     strcpy(s1.name,"Drim");
 
     printf("student name = %s\n",s1.name);
