@@ -142,3 +142,106 @@ printf("student roll= %d\n",(*ptr).roll);
 return 0;
 }/*student roll=13
 student roll= 13*/
+
+
+
+
+6.#include<stdio.h>
+#include<string.h>
+
+struct student
+{
+    int roll;
+    float cgpa;
+    char name[100];
+};
+
+int main() 
+{
+    struct student s1={34,6.45,"Mula"};
+    printf("Student Roll= %d\n", s1.roll);
+    
+    struct student *ptr=&s1;
+    printf("Student.roll with ptr=%d\n", (*ptr).roll);
+    printf("Stuent->roll = %d\n", ptr->roll);
+    printf("Student->cgpa = %f\n",ptr->cgpa);
+    printf("Student->name= %s\n",ptr->name);
+}
+
+/*Student Roll= 34
+Student.roll with ptr=34
+Stuent->roll = 34
+Student->cgpa = 6.450000
+Student->name= Mula
+*/
+
+
+
+7.#include<stdio.h>
+#include<string.h>
+
+//void printInfo(struct student s1);-->error , you didnt define "student" ,compiler read line by line
+struct student
+{
+    int roll;
+    float cgpa;
+    char name[100];
+};
+
+void printInfo(struct student s1); //declare
+
+int main() 
+{
+    struct student s1={34,6.45,"Mula"};
+    printInfo(s1); //call by value
+    s1.roll=1660;
+    printf("Stuent.roll = %d\n", s1.roll);
+    
+   // printf("Student Roll= %d\n", s1.roll);
+    
+}
+
+void printInfo(struct student s1) //define 
+{
+    printf("Student Information\n");
+     printf("Stuent.roll = %d\n", s1.roll);
+    printf("Student.cgpa = %f\n",s1.cgpa);
+    printf("Student.name= %s\n",s1.name);
+    
+    //s1.roll=1660;  //lav nai -, -
+}
+
+
+8.
+#include <stdio.h>
+#include <string.h>
+
+//user defined 
+typedef struct student {
+    int roll;
+    float cgpa;
+    char name [100];
+} stu;
+
+typedef struct computerengineeringstudent 
+{
+    int roll;
+    float cgpa;
+    char name[100];
+}coe;
+
+int main() 
+{
+    coe s1;
+    s1.roll =1664;
+    s1.cgpa=10.3;
+    strcpy (s1.name,"Hehe");
+    
+    printf("student name is %s\n" , s1.name);
+    
+    return 0;
+}
+
+
+
+9.
