@@ -244,4 +244,55 @@ int main()
 
 
 
-9.
+9.#include <stdio.h>
+
+struct date {
+    int day;
+    int month;
+};
+struct book {
+    char name[50];
+    struct date isd, rd;
+};
+struct student {
+    int id;
+    char name[50];
+    struct book b[2];
+};
+int calculate_fine(int id,int im,int rd,int rm){
+    int d,f;
+    if(rm==im){
+        d=rd-id;
+    }
+    else{
+        d=(rm-im)*30-id+rd;
+    }
+    if(d>5){
+        d=d-5;
+        f=d*50;
+    }
+    else{
+        f=0;
+    }
+    return f;
+}
+int main() {
+    struct student s;
+    printf("Student name: ");
+    scanf("%s", & s.name);
+    printf("\nStudent ID: ");
+    scanf("%d", & s.id);
+    for (int i = 0; i < 2; i++) {
+        printf("\nBook name %d: ", i + 1);
+        scanf("%s", & s.b[i]);
+        printf("\nIssue date: ");
+        scanf("%d %d", & s.b[i].isd.day, & s.b[i].isd.month);
+        printf("\nReturn date: ");
+        scanf("%d %d", & s.b[i].rd.day, & s.b[i].rd.month);
+        int f=calculate_fine(s.b[i].isd.day,s.b[i].isd.month,s.b[i].rd.day,s.b[i].rd.month);
+        printf("\nTotal fine for book %d: %d", i + 1, f);
+    }
+
+
+
+}
