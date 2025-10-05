@@ -70,4 +70,4 @@ int main() {
             printf("\nThere is no fine");
         }
     }
-}
+}  //credit: adiiii.0308
